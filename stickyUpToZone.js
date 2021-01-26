@@ -1,4 +1,4 @@
-function stickyElement($ele) {
+var stickyElement = function($ele) {
    var stickyElementItem = $($ele);
    var element = stickyElementItem.offset().top;
    $(window).scroll(function () {
