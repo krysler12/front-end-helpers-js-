@@ -84,8 +84,8 @@
 
       /* Main progress bar*/
       var section_track_position;
-      // current_scrolled_position = $(window).scrollTop() + $(window).height();
-      var current_scrolled_position = $(window).scrollTop();
+       /* current_scrolled_position = $(window).scrollTop() + $(window).height(); */ /*Use if there is no / unsignificant height below track*/
+      var current_scrolled_position = $(window).scrollTop(); /*Use if there is enough height below track*/
       var section_track_position = $('.section-track-container').offset().top;
       var section_track_height = $('.section-track-container').outerHeight();
       var section_track_position_plus_height = section_track_position + section_track_height;
