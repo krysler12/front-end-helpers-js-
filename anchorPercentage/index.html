@@ -85,11 +85,11 @@
       /* Main progress bar*/
       var section_track_position;
       // current_scrolled_position = $(window).scrollTop() + $(window).height();
-      current_scrolled_position = $(window).scrollTop();
-      section_track_position = $('.section-track-container').offset().top;
-      section_track_height = $('.section-track-container').outerHeight();
-      section_track_position_plus_height = section_track_position + section_track_height;
-      current_position_minus_offset_top_section_track = current_scrolled_position - section_track_position;
+      var current_scrolled_position = $(window).scrollTop();
+      var section_track_position = $('.section-track-container').offset().top;
+      var section_track_height = $('.section-track-container').outerHeight();
+      var section_track_position_plus_height = section_track_position + section_track_height;
+      var current_position_minus_offset_top_section_track = current_scrolled_position - section_track_position;
 
 
 
