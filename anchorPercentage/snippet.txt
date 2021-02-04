@@ -1,0 +1,65 @@
+function anchorPercentage() {
+  var current_scrolled_position;
+
+  /* Main progress bar*/
+  var section_track_position;
+  // current_scrolled_position = $(window).scrollTop() + $(window).height();
+  current_scrolled_position = $(window).scrollTop();
+  section_track_position = $('.section-track-container').offset().top;
+  section_track_height = $('.section-track-container').outerHeight();
+  section_track_position_plus_height = section_track_position + section_track_height;
+  current_position_minus_offset_top_section_track = current_scrolled_position - section_track_position;
+
+
+
+  if ((current_scrolled_position >= section_track_position) && (current_scrolled_position <= section_track_position_plus_height)) {
+    percentage_scrolled_of_section_track = Math.ceil((parseInt(current_position_minus_offset_top_section_track) / parseInt(section_track_height)) * 100);
+    // console.log('section track percentage  ' + percentage_scrolled_of_section_track + '%');
+    $('.section-progress--main-bar .section-bar').css('width', percentage_scrolled_of_section_track + "%");
+  } else if (current_scrolled_position >= section_track_position_plus_height) {
+    $('.section-progress--main-bar .section-bar').css('width', "100%");
+  } else {
+    $('.section-progress--main-bar .section-bar').css('width', 0);
+  }
+
+  /* end of Main progress bar */
+}
+/*End of anchorPercentage*/
+
+
+$(window).scroll(function () {
+  if ($('.one-section').length) {
+    /* anchorPercentage*/
+    $('.one-section').each(function () {
+      anchorPercentage();
+    });
+  }
+});
+
+
+<div class="section-progress--main-bar">
+  <div class="section-bar" style="width: 79%;"></div>
+</div>
+
+
+<div class="section-track-container">
+
+    <div class="wysiwyg one-section" id="anchor-section-1">
+        <!--Replace content -->
+          <p style="height: 1000px;"> </p>
+        <!--End of Replace content -->
+    </div>
+
+    <div class="wysiwyg one-section" id="anchor-section-2">
+        <!--Replace content -->
+          <p style="height: 1000px;"> </p>
+        <!--End of Replace content -->
+    </div>
+
+    <div class="wysiwyg one-section" id="anchor-section-3">
+        <!--Replace content -->
+          <p style="height: 1000px;"> </p>
+        <!--End of Replace content -->
+    </div>
+
+</div>
